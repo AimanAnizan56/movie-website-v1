@@ -9,29 +9,17 @@ function App() {
   type Movie = {
     releaseDate: string;
     title: string;
-    slug: {
-      current: 'string';
-    };
-    poster: {
-      asset: {
-        url: 'string';
-      };
-    };
+    slug: string;
+    posterUrl: string;
   };
 
   const getMovies = async () => {
     const data = await client.fetch(`*[_type == "movie"] {
       releaseDate,
       title,
-      slug {
-        current
-      },
-      poster {
-        asset-> {
-          url
-        }
-      }
-  }`);
+      "slug": slug.current,
+      "posterUrl": poster.asset->url
+    }`);
     setMovies(data);
   };
 
@@ -48,6 +36,11 @@ function App() {
       text-align: left;
     }
   `;
+
+  const LinkRoute = styled(Link)`
+    color: white;
+  `;
+
   const List = styled.div`
     margin: 20px auto;
     margin-bottom: 50px;
@@ -101,13 +94,13 @@ function App() {
           movies.map((movie: Movie) => {
             const d = new Date(movie.releaseDate);
             return (
-              <Link key={movie.slug.current} to={`/movie/${movie.slug.current}`}>
+              <LinkRoute key={movie.slug} to={`/movie/${movie.slug}`}>
                 <Card>
-                  <Image alt={movie.slug.current} src={movie.poster.asset.url} />
+                  <Image alt={movie.slug} src={movie.posterUrl} />
                   <Title>{movie.title} </Title>
                   <ReleaseDate>{d.getFullYear()}</ReleaseDate>
                 </Card>
-              </Link>
+              </LinkRoute>
             );
           })}
       </List>
