@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { client } from './lib/sanity.query';
+import { client } from '../lib/sanity.query';
 import styled from '@emotion/styled';
 
 function App() {
