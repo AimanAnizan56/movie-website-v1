@@ -1,8 +1,16 @@
-# React + TypeScript + Vite
+# React + TypeScript + Vite + Sanity.io
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project was developed to explore about React JS with Typescript (Vite Configuration) and headless CMS from Sanity.io with GraphQL Relational Object Query (GROQ).
 
-Currently, two official plugins are available:
+Apart from that, some packages has been added from this vite template:
+
+1. react-router-dom : for page navigation
+2. @sanity/client : for query data with Sanity Content Lake
+3. @emotion/styled : for website styling
+
+# Vite Documentation
+
+Two official plugins are available:
 
 - [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
 - [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
