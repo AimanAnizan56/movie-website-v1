@@ -4,9 +4,9 @@ This project was developed to explore about React JS with Typescript (Vite Confi
 
 Apart from that, some packages has been added from this vite template:
 
-1. react-router-dom : for page navigation
-2. @sanity/client : for query data with Sanity Content Lake
-3. @emotion/styled : for website styling
+1. [react-router-dom](https://reactrouter.com/en/main/start/overview) : for page navigation
+2. [@sanity/client](https://www.sanity.io/docs/js-client) : for query data with Sanity Content Lake
+3. [@emotion/styled](https://emotion.sh/docs/styled) : for website styling
 
 # Vite Documentation
 
