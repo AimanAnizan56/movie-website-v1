@@ -1,7 +1,7 @@
 import { useLoaderData } from 'react-router-dom';
 
 const Movie = () => {
-  const movie = useLoaderData() as Array<{
+  type MovieType = {
     popularity: number;
     posterAsset: string;
     releaseDate: string;
@@ -16,9 +16,8 @@ const Movie = () => {
       job: string;
       name: string;
     }>;
-  }>;
-
-  console.log(movie);
+  };
+  const movie: MovieType = (useLoaderData() as Array<MovieType>)[0];
 
   return (
     <div>
