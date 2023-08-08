@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { client } from '../lib/sanity.query';
 import styled from '@emotion/styled';
+import { Link } from 'react-router-dom';
 
 function App() {
   const [movies, setMovies] = useState([]);
@@ -95,15 +96,18 @@ function App() {
       <Header>Movie List</Header>
 
       <List>
+        {movies.length == 0 && <div>Loading...</div>}
         {movies.length != 0 &&
           movies.map((movie: Movie) => {
             const d = new Date(movie.releaseDate);
             return (
-              <Card key={movie.slug.current}>
-                <Image alt={movie.slug.current} src={movie.poster.asset.url} />
-                <Title>{movie.title} </Title>
-                <ReleaseDate>{d.getFullYear()}</ReleaseDate>
-              </Card>
+              <Link key={movie.slug.current} to={`/movie/${movie.slug.current}`}>
+                <Card>
+                  <Image alt={movie.slug.current} src={movie.poster.asset.url} />
+                  <Title>{movie.title} </Title>
+                  <ReleaseDate>{d.getFullYear()}</ReleaseDate>
+                </Card>
+              </Link>
             );
           })}
       </List>
