@@ -22,7 +22,7 @@ const Movie = () => {
   const movie: MovieType = (useLoaderData() as Array<MovieType>)[0];
 
   const Container = styled.div`
-    margin: 30px 100px;
+    margin: 30px 20px;
     @media (min-width: 1180px) {
       margin: 50px 200px;
     }
