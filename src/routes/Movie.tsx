@@ -47,13 +47,17 @@ const Movie = () => {
     }
   `;
   const PosterContainer = styled.div`
-    width: 500px;
+    max-width: 500px;
     display: flex;
     justify-content: center;
   `;
   const Poster = styled.img`
-    width: 400px;
-    height: 600px;
+    width: 300px;
+    height: 500px;
+    @media (min-width: 1000px) {
+      width: 400px;
+      height: 600px;
+    }
   `;
 
   const DetailContainer = styled.div`
@@ -65,6 +69,16 @@ const Movie = () => {
     display: flex;
     gap: 10px;
     align-items: center;
+  `;
+
+  const Overview = styled.div`
+    > p:nth-child(n + 1) {
+      font-size: 14px;
+
+      @media (min-width: 1000px) {
+        font-size: 16px;
+      }
+    }
   `;
 
   const CastContainer = styled.div`
@@ -86,10 +100,21 @@ const Movie = () => {
     flex-direction: row;
     gap: 10px;
     align-items: center;
+    font-size: 14px;
+    @media (min-width: 1000px) {
+      font-size: 16px;
+    }
     > img {
       width: 50px;
       height: 70px;
       border-radius: 5px;
+    }
+  `;
+
+  const CrewContainer = styled.p`
+    font-size: 14px;
+    @media (min-width: 1000px) {
+      font-size: 16px;
     }
   `;
 
@@ -108,10 +133,10 @@ const Movie = () => {
             {movie.popularity.toFixed(2)}
           </Popularity>
           <hr />
-          <div>
+          <Overview>
             <p style={{ fontWeight: 'bold' }}>Overview</p>
             <p>{movie.overview}</p>
-          </div>
+          </Overview>
           <hr />
           <div>
             <p style={{ fontWeight: 'bold' }}>Top Cast</p>
@@ -130,13 +155,13 @@ const Movie = () => {
           <hr />
           <div>
             <p style={{ fontWeight: 'bold' }}>Crew Members</p>
-            <p>
+            <CrewContainer>
               {movie.crewMembers.map((crew, index) => {
                 let name = crew.name;
                 if (index + 1 != movie.crewMembers.length) name += ', ';
                 return <span key={index}>{name}</span>;
               })}
-            </p>
+            </CrewContainer>
           </div>
         </DetailContainer>
       </MovieInfo>
